@@ -1,0 +1,306 @@
+$d-primary: #293352;
+$l-primary: #007BFF;
+$primary: #00316D;
+$secondary: #FFA804;
+$white: #ffffff;
+$transparant: rgba(255,255,255,0);
+$black: #2D2D2D;
+$d-gray: #979FB5;
+$gray: #DFDFDF;
+* {
+    font-family: 'Segoe UI';
+    text-decoration: none;
+}
+/* 
+// ================================
+// | 1 | Typography
+// ================================ 
+*/
+h1{
+    font-size: 32px;
+    line-height: 43px;
+    letter-spacing: 4px;
+    font-weight: bolder;
+}
+h2{
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 2px;
+    font-weight: bolder;
+}
+h3{
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: bold;
+}
+h4{
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+}
+h5{
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: bolder;
+}
+/* 
+// ================================
+// | 2 | Colour & Background
+// ================================ 
+// 2.A - Colour
+*/
+.text-primary{
+   color: $primary !important;
+}
+.text-secondary{
+    color: $secondary !important;
+}
+.text-dark-primary{
+    color: $d-primary !important;
+}
+.text-light-primary{
+    color: $l-primary !important;
+}
+.text-white{
+    color: $white !important;
+}
+.text-gray{
+    color: $gray !important;
+}
+.text-dark-gray{
+    color: $d-gray !important;
+}
+.text-black{
+    color: $black !important;
+}
+/*
+// 2.B - Background
+*/
+.bg-primary{
+   background-color: $primary !important;
+}
+.bg-secondary{
+   background-color: $secondary !important;
+}
+.bg-dark-primary{
+   background-color: $d-primary !important;
+}
+.bg-light-primary{
+   background-color: $l-primary !important;
+}
+.bg-white{
+   background-color: $white !important;
+}
+.bg-gray{
+   background-color: $gray !important;
+}
+.bg-dark-gray{
+   background-color: $d-gray !important;
+}
+.bg-black{
+    background-color: $black !important;
+}
+/* 
+// ================================
+// | 3 | Layout
+// ================================ 
+// 3.A - Margin
+*/
+$margins: 't', 'r', 'b', 'l','x','y','a';
+
+@for $i from 1 through length($margins){
+    $margin: nth($margins, $i);
+    @for $j from 1 through 5{
+        .m#{$margin}-#{$j}{
+            @if $margin == t {
+                margin-top: calc(#{$j} * 5)px;
+            }@else if $margin == r {
+                margin-right: calc(#{$j} * 5)px;
+            }@else if $margin == b {
+                margin-bottom: calc(#{$j} * 5)px;
+            }@else if $margin == l {
+                margin-left: calc(#{$j} * 5)px;
+            }@else if $margin == x {
+                margin-right: calc(#{$j} * 5)px;
+                margin-left: calc(#{$j} * 5)px;
+            }@else if $margin == y {
+                margin-top: calc(#{$j} * 5)px;
+                margin-bottom: calc(#{$j} * 5)px;
+            }@else{
+                margin-top: calc(#{$j} * 5)px;
+                margin-bottom: calc(#{$j} * 5)px;
+                margin-right: calc(#{$j} * 5)px;
+                margin-left: calc(#{$j} * 5)px;
+            }
+        }
+    }
+    .m#{$margin}-auto{
+        @if $margin == t {
+            margin-top: auto;
+        }@else if $margin == r {
+            margin-right: auto;
+        }@else if $margin == b {
+            margin-bottom: auto;
+        }@else if $margin == l {
+            margin-left: auto;
+        }@else if $margin == x {
+            margin-right: auto;
+            margin-left: auto;
+        }@else if $margin == y {
+            margin-top: auto;
+            margin-bottom: auto;
+        }@else{
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}
+/*
+// 3.B - Padding
+*/
+
+$paddings: 't', 'r', 'b', 'l','x','y','a';
+
+@for $i from 1 through length($paddings){
+    $padding: nth($paddings, $i);
+    @for $j from 1 through 5{
+        .p#{$padding}-#{$j}{
+            @if $padding == t {
+                padding-top: calc(#{$j} * 5)px;
+            }@else if $padding == r {
+                padding-right: calc(#{$j} * 5)px;
+            }@else if $padding == b {
+                padding-bottom: calc(#{$j} * 5)px;
+            }@else if $padding == l {
+                padding-left: calc(#{$j} * 5)px;
+            }@else if $padding == x {
+                padding-right: calc(#{$j} * 5)px;
+                padding-left: calc(#{$j} * 5)px;
+            }@else if $padding == y {
+                padding-top: calc(#{$j} * 5)px;
+                padding-bottom: calc(#{$j} * 5)px;
+            }@else{
+                padding: calc(#{$j} * 5)px;
+            }
+        }
+    }
+    
+    .p#{$padding}-auto{
+        @if $padding == t {
+            padding-top: auto;
+        }@else if $padding == r {
+            padding-right: auto;
+        }@else if $padding == b {
+            padding-bottom: auto;
+        }@else if $padding == l {
+            padding-left: auto;
+        }@else if $padding == x {
+            padding-right: auto;
+            padding-left: auto;
+        }@else if $padding == y {
+            padding-top: auto;
+            padding-bottom: auto;
+        }@else{
+            padding: auto;
+        }
+    }
+}
+
+/*
+// 3.C - Display & Positions
+*/
+
+// Display 
+$displays: 'inline', 'block', 'inline-block', 'flex', 'grid';
+
+@for $i from 1 through length($displays){
+    $display: nth($displays, $i);
+
+    .d-#{$display}{
+        display: #{$display};
+    }
+}
+$positions: 'static', 'absolute', 'relative';
+
+@for $i from 1 through length($positions){
+    $position: nth($positions, $i);
+
+    .p-#{$position}{
+        position: #{$position};
+    }
+}
+
+/* 
+// ================================
+// | 4 | Button & Link
+// ================================ 
+// 4.A - Button
+*/
+.btn{
+    display: inline-block;
+    background-color: $white;
+    box-sizing: border-box;
+    padding: 5px 26px;
+    margin: 2px 3px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: bold;
+    // Detail
+    &-primary{
+        color: $white;
+        background-color: $primary;
+    }
+    &-secondary{
+        color: $white;
+        background-color: $secondary;
+    }
+    &-dark-primary{
+        color: $white;
+        background-color: $d-primary;
+    }
+    &-ghost-primary{
+        color: $primary;
+        border: 2px solid $primary;
+        background-color: $transparant;
+    }
+    &-ghost-secondary{
+        color: $secondary;
+        border: 2px solid $secondary;
+        background-color: $transparant;
+    }
+    &-ghost-dark-primary{
+        color: $d-primary;
+        border: 2px solid $d-primary;
+        background-color: $transparant;
+    }
+}
+
+/*
+// 4.B - Link
+*/
+a{
+    text-decoration: none;
+    transition: 400ms;
+    &:hover, &:active{
+        color: $l-primary;
+    }
+    &.menu{
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $transparant;
+        color: $d-gray;
+        &:hover, &:active,&.active{
+            color: $d-primary;
+        }
+    }
+    cursor: pointer;
+}
