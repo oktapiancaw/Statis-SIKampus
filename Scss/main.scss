@@ -207,7 +207,7 @@ $paddings: 't', 'r', 'b', 'l','x','y','a';
         }
     }
 }
-
+    
 /*
 // 3.C - Display & Positions
 */
@@ -303,4 +303,69 @@ a{
         }
     }
     cursor: pointer;
+}
+
+/* 
+// ================================
+// | 5 | Playground & Responsive
+// ================================ 
+*/
+body{
+    margin: 0;
+    padding: 0;
+    background-color: $gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#phone-view{
+    position: relative;
+    max-width: 375px !important;
+    min-width: 375px !important;
+    width: 375px !important;
+    max-height: 579px !important;
+    min-height: 579px !important;
+    height: 579px !important;
+}
+// Nav
+.nav{
+    position: absolute;
+    width: inherit;
+    &#head{
+        top: 0;
+        height: 60px;
+        background-color: $d-primary;
+    }
+    &#main{
+        bottom: 0;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(233,233,233,1),rgba(233,233,233,0));
+        }
+        .menu-box{
+            position: relative;
+            z-index: 3;
+            width: 355px;
+            height: 48px;
+            border-radius: 24px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.05);
+        }
+    }
+}
+.content{
+    width: inherit;
+    height: calc(579px - 60px);
+    min-height: calc(579px - 60px);
+    overflow-y: scroll;
+    padding-right: 18px;
+    padding-top: 60px;
 }
