@@ -7,7 +7,7 @@
   </a>
 
   <p align="center">Sistem Informasi Kampus</p>
-  <h3 align="center">Sistem Informasi Kampus</h3>
+  <h3 align="center">ITB Books</h3>
 </p>
 
 
