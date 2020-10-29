@@ -589,6 +589,26 @@ section.text{
                 transform: translateX(-50%);
                 display: grid;
                 grid-template-columns: 75px 2fr 75px;
+                @for $i from 1 through 3{
+                    div:nth-child(#{$i}){
+                        grid-column-start:#{$i};
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+                .pagination{
+                    .link{
+                        display: inline-block;
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 24px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }

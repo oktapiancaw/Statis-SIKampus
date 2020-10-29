@@ -1095,4 +1095,63 @@ section.text button {
   -ms-grid-columns: 75px 2fr 75px;
       grid-template-columns: 75px 2fr 75px;
 }
+
+.content #about #sejarah #alamat div:nth-child(1) {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content #about #sejarah #alamat div:nth-child(2) {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content #about #sejarah #alamat div:nth-child(3) {
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content #about #sejarah #alamat .pagination .link {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
 /*# sourceMappingURL=main.css.map */
