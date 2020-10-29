@@ -52,6 +52,11 @@ p{
     line-height: 19px;
     font-weight: lighter;
 }
+label{
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+}
 /* 
 // ================================
 // | 2 | Colour & Background
@@ -267,14 +272,14 @@ $positions: 'static', 'absolute', 'relative';
 .shadow{
     @for $i from 1 through 6{
         &-card-#{$i}{
-            box-shadow: 0px 0px calc(#{$i} * 2px) rgba(41,51,82,0.1);
+            box-shadow: 0px 0px calc(#{$i} * 2px) rgba(41,51,82,0.15);
         }
     }
     &-input{
-        box-shadow: 0px 2px 6px rgba(41,51,82,0.1);
+        box-shadow: 0px 2px 6px rgba(41,51,82,0.15);
     }
     &-link{
-        box-shadow: 0px 3px 2px rgba(41,51,82,0.1);
+        box-shadow: 0px 3px 2px rgba(41,51,82,0.15);
     }
 }
 /* 
@@ -284,6 +289,8 @@ $positions: 'static', 'absolute', 'relative';
 // 4.A - Button
 */
 .btn{
+    border: none;
+    outline: none;
     display: inline-block;
     background-color: $white;
     box-sizing: border-box;
@@ -307,6 +314,10 @@ $positions: 'static', 'absolute', 'relative';
     &-dark-primary{
         color: $white;
         background-color: $d-primary;
+    }
+    &-light-primary{
+        color: $white;
+        background-color: $l-primary;
     }
     &-ghost-primary{
         color: $primary;
@@ -335,6 +346,16 @@ a{
     &:hover, &:active{
         color: $l-primary;
     }
+    &.btn-primary{
+        &:hover{
+            color: $d-primary;
+        }
+    }
+    &.btn-light-primary{
+        &:hover{
+            color: $primary;
+        }
+    }
     &.menu{
         display: inline-block;
         width: 48px;
@@ -355,7 +376,42 @@ a{
     }
     cursor: pointer;
 }
+input, textarea{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: 200ms;
+    &.normal{
+        width: 200px;
+        height: 32px;
+        font-size: 15px;
+        line-height: 20px;
+        padding: 7px 5px 5px 5px;
+    }
+    &.search-box{
+        width: 355px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 21px;
+        padding: 10px 30px 9px 35px;
 
+    }
+    &.pesan{
+        min-height: 100px;
+        max-height: 100px;
+        overflow-y: hidden;
+        min-width: 240px;
+        max-width: 320px;
+        font-size: 15px;
+        line-height: 20px;
+        padding: 7px 5px 5px 5px;
+        
+    }
+    &:focus{
+        box-shadow: 0px 2px 6px rgba(41,51,82,0.15);
+    }
+}
 /* 
 // ================================
 // | 5 | Playground & Responsive
@@ -400,6 +456,27 @@ body{
                 height: 60px;
                 border-radius: 30px;
                 background-color: inherit;
+            }
+            img{
+                z-index: 11;
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 48px;
+                height: 48px;
+            }
+            h3{
+                position: absolute;
+                top: 12px;
+                left: 60px;
+            }
+            hr{
+                position: absolute;
+                top: 27px;
+                left: 60px;
+                width: 251px;
+                border: none;
+                border-bottom: 2px solid $white;
             }
         }
     }
@@ -462,7 +539,7 @@ section.text{
     .head-section-2{
         display: flex;
         align-items: center;
-        height: 35px;
+        height: 40px;
         margin: 5px 0px;
         hr{
             width: 85px;
@@ -666,12 +743,13 @@ section.text{
 }
 
 .content{
-    #news{
+
+    #news, #video{
         z-index: 2;
         width: inherit;
         background-color: $white;
         margin-top: 35px;
-        #new-box{
+        #new-box, #video-box{
             width: inherit;
             position: relative;
             .new{
@@ -706,5 +784,36 @@ section.text{
                 }
             }
         }
+    }
+}
+
+.content{
+    #mail,
+    #award{
+        z-index: 2;
+        width: inherit;
+        background-color: $white;
+        margin-top: 35px;
+        #mail-box,
+        #award-box{
+            width: inherit;
+            position: relative;
+            .card{
+                img{
+                    width: 100%;
+                    height: 180px;
+                    object-fit: cover;
+                    display: block;
+                }
+                hr{
+                    width: 50px;
+                    border: none;
+                    border-bottom: 3px solid $secondary;
+                }
+            }
+        }
+    }
+    #award{
+        padding-bottom: 60px;
     }
 }
