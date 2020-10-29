@@ -439,20 +439,97 @@ input, textarea{
 body{
     margin: 0;
     padding: 0;
-    background-color: $gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @media (min-width: 376px){
+        min-height: 100vh;
+        background: linear-gradient($white, $gray);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @media (max-width: 375px){
+        min-height: 100vh;
+    }
 }
-#phone-view{
-    position: relative;
-    max-width: 375px !important;
-    min-width: 375px !important;
-    width: 375px !important;
-    max-height: 579px !important;
-    min-height: 579px !important;
-    height: 579px !important;
+
+::-webkit-scrollbar {
+    width: 0px
 }
+@media (max-width: 374px){
+    body{
+        display: none;
+    }
+}
+
+#description{
+    width: calc(100% - 500px);
+    hr{
+        width: 300px;
+        border: none;
+        border-bottom: 3px solid $secondary;
+        margin-left: 0;
+    }
+    box-sizing: border-box;
+    padding-left: 5%;
+    @media (max-width: 900px){
+        display: none;
+    }
+}
+.phone{
+    
+    @media (min-width: 376px){
+        position: relative;
+        padding-top: 20px;
+        border-radius: 30px;
+        overflow: hidden;
+        height: 579px !important;
+        background-color: $black;
+        border: 2px solid $d-primary;
+        box-shadow: 5px 20px 10px rgba(0,0,0,0.3);
+        #phone-bar{
+            display: block;
+        }
+    }
+    @media (max-width: 375px){
+        background-color: $gray;
+        height: 100vh !important;
+        #phone-bar{
+            display: none;
+        }
+    }
+    #phone-bar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 375px !important;
+        min-width: 375px !important;
+        width: 375px !important;
+        box-sizing: border-box;
+        padding: 0px 20px;
+        height: 20px;
+        text-align: right;
+        i, span{
+            font-size: 15px;
+            line-height: 20px;
+            color: $white;
+        }
+    }
+    #phone-view{
+        position: relative;
+        max-width: 375px !important;
+        min-width: 375px !important;
+        width: 375px !important;
+        min-height: 579px !important;
+        
+        @media (min-width: 376px){
+            height: 579px !important;
+        }
+        @media (max-width: 375px){
+            height: 100vh !important;
+        }
+
+    }
+}
+
 // Nav
 .nav{
     position: absolute;
@@ -528,10 +605,17 @@ body{
 }
 .content{
     width: inherit;
-    height: calc(579px - 45px);
-    min-height: calc(579px - 45px);
+    
+    
+    @media (min-width: 376px){
+        height: calc(579px - 45px);
+        min-height: calc(579px - 45px);
+    }
+    @media (max-width: 375px){
+        height: calc(100vh - 45px);
+        min-height: calc(100vh - 45px);
+    }
     overflow-y: scroll;
-    padding-right: 18px;
     padding-top: 45px;
 }
 section.text{
@@ -694,7 +778,7 @@ section.text{
                 transition: 1s;
                 
             }
-            &:hover{
+            &.active{
                 #visi{
                     .card-head{
                         border-radius: 0px 0px 0px 0px;
@@ -736,11 +820,17 @@ section.text{
                 display: grid;
                 grid-template-columns: 75px 2fr 75px;
                 @for $i from 1 through 3{
-                    div:nth-child(#{$i}){
-                        grid-column-start:#{$i};
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                    @if $i != 2 {
+                        div:nth-child(#{$i}){
+                            grid-column-start:#{$i};
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }@else{
+                        div:nth-child(#{$i}){
+                            grid-column-start:#{$i};
+                        }
                     }
                 }
                 .pagination{
@@ -754,6 +844,28 @@ section.text{
                         justify-content: center;
                         align-items: center;
                         cursor: pointer;
+                    }
+                }
+                .kampus{
+                    max-width: 175px;
+                    overflow-x: hidden;
+                    .head-kampus{
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                        img{
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                    .mail{
+                        color: $d-gray;
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                        i{
+                            font-size: 16px;
+                        }
                     }
                 }
             }

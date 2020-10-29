@@ -871,26 +871,126 @@ input:focus, textarea:focus {
 body {
   margin: 0;
   padding: 0;
-  background-color: #DFDFDF;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-#phone-view {
+@media (min-width: 376px) {
+  body {
+    min-height: 100vh;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#DFDFDF));
+    background: linear-gradient(#ffffff, #DFDFDF);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    min-height: 100vh;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+@media (max-width: 374px) {
+  body {
+    display: none;
+  }
+}
+
+#description {
+  width: calc(100% - 500px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 5%;
+}
+
+#description hr {
+  width: 300px;
+  border: none;
+  border-bottom: 3px solid #FFA804;
+  margin-left: 0;
+}
+
+@media (max-width: 900px) {
+  #description {
+    display: none;
+  }
+}
+
+@media (min-width: 376px) {
+  .phone {
+    position: relative;
+    padding-top: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 579px !important;
+    background-color: #2D2D2D;
+    border: 2px solid #293352;
+    -webkit-box-shadow: 5px 20px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 5px 20px 10px rgba(0, 0, 0, 0.3);
+  }
+  .phone #phone-bar {
+    display: block;
+  }
+}
+
+@media (max-width: 375px) {
+  .phone {
+    background-color: #DFDFDF;
+    height: 100vh !important;
+  }
+  .phone #phone-bar {
+    display: none;
+  }
+}
+
+.phone #phone-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 375px !important;
+  min-width: 375px !important;
+  width: 375px !important;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0px 20px;
+  height: 20px;
+  text-align: right;
+}
+
+.phone #phone-bar i, .phone #phone-bar span {
+  font-size: 15px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.phone #phone-view {
   position: relative;
   max-width: 375px !important;
   min-width: 375px !important;
   width: 375px !important;
-  max-height: 579px !important;
   min-height: 579px !important;
-  height: 579px !important;
+}
+
+@media (min-width: 376px) {
+  .phone #phone-view {
+    height: 579px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .phone #phone-view {
+    height: 100vh !important;
+  }
 }
 
 .nav {
@@ -990,11 +1090,22 @@ body {
 
 .content {
   width: inherit;
-  height: calc(579px - 45px);
-  min-height: calc(579px - 45px);
   overflow-y: scroll;
-  padding-right: 18px;
   padding-top: 45px;
+}
+
+@media (min-width: 376px) {
+  .content {
+    height: calc(579px - 45px);
+    min-height: calc(579px - 45px);
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    height: calc(100vh - 45px);
+    min-height: calc(100vh - 45px);
+  }
 }
 
 section.text {
@@ -1216,11 +1327,11 @@ section.text button {
   transition: 1s;
 }
 
-.content #about #tujuan:hover #visi .card-head {
+.content #about #tujuan.active #visi .card-head {
   border-radius: 0px 0px 0px 0px;
 }
 
-.content #about #tujuan:hover #misi {
+.content #about #tujuan.active #misi {
   top: 52px;
   -webkit-transform: translateX(-50%) scale(1);
           transform: translateX(-50%) scale(1);
@@ -1289,15 +1400,6 @@ section.text button {
 .content #about #sejarah #alamat div:nth-child(2) {
   -ms-grid-column: 2;
       grid-column-start: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .content #about #sejarah #alamat div:nth-child(3) {
@@ -1330,6 +1432,45 @@ section.text button {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+}
+
+.content #about #sejarah #alamat .kampus {
+  max-width: 175px;
+  overflow-x: hidden;
+}
+
+.content #about #sejarah #alamat .kampus .head-kampus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.content #about #sejarah #alamat .kampus .head-kampus img {
+  width: 30px;
+  height: 30px;
+}
+
+.content #about #sejarah #alamat .kampus .mail {
+  color: #979FB5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.content #about #sejarah #alamat .kampus .mail i {
+  font-size: 16px;
 }
 
 .content #news, .content #video {
