@@ -16,16 +16,20 @@ $gray: #DFDFDF;
 // | 1 | Typography
 // ================================ 
 */
+h1,h2,h3,h4,h5{
+    margin-top: 0;
+    margin-bottom: 0;
+}
 h1{
     font-size: 32px;
     line-height: 43px;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     font-weight: bolder;
 }
 h2{
     font-size: 24px;
     line-height: 32px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: bolder;
 }
 h3{
@@ -42,6 +46,11 @@ h5{
     font-size: 14px;
     line-height: 19px;
     font-weight: bolder;
+}
+p{
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: lighter;
 }
 /* 
 // ================================
@@ -110,27 +119,27 @@ $margins: 't', 'r', 'b', 'l','x','y','a';
 
 @for $i from 1 through length($margins){
     $margin: nth($margins, $i);
-    @for $j from 1 through 5{
+    @for $j from 0 through 5{
         .m#{$margin}-#{$j}{
             @if $margin == t {
-                margin-top: calc(#{$j} * 5)px;
+                margin-top: calc(#{$j} * 5px);
             }@else if $margin == r {
-                margin-right: calc(#{$j} * 5)px;
+                margin-right: calc(#{$j} * 5px);
             }@else if $margin == b {
-                margin-bottom: calc(#{$j} * 5)px;
+                margin-bottom: calc(#{$j} * 5px);
             }@else if $margin == l {
-                margin-left: calc(#{$j} * 5)px;
+                margin-left: calc(#{$j} * 5px);
             }@else if $margin == x {
-                margin-right: calc(#{$j} * 5)px;
-                margin-left: calc(#{$j} * 5)px;
+                margin-right: calc(#{$j} * 5px);
+                margin-left: calc(#{$j} * 5px);
             }@else if $margin == y {
-                margin-top: calc(#{$j} * 5)px;
-                margin-bottom: calc(#{$j} * 5)px;
+                margin-top: calc(#{$j} * 5px);
+                margin-bottom: calc(#{$j} * 5px);
             }@else{
-                margin-top: calc(#{$j} * 5)px;
-                margin-bottom: calc(#{$j} * 5)px;
-                margin-right: calc(#{$j} * 5)px;
-                margin-left: calc(#{$j} * 5)px;
+                margin-top: calc(#{$j} * 5px);
+                margin-bottom: calc(#{$j} * 5px);
+                margin-right: calc(#{$j} * 5px);
+                margin-left: calc(#{$j} * 5px);
             }
         }
     }
@@ -165,24 +174,24 @@ $paddings: 't', 'r', 'b', 'l','x','y','a';
 
 @for $i from 1 through length($paddings){
     $padding: nth($paddings, $i);
-    @for $j from 1 through 5{
+    @for $j from 0 through 5{
         .p#{$padding}-#{$j}{
             @if $padding == t {
-                padding-top: calc(#{$j} * 5)px;
+                padding-top: calc(#{$j} * 5px);
             }@else if $padding == r {
-                padding-right: calc(#{$j} * 5)px;
+                padding-right: calc(#{$j} * 5px);
             }@else if $padding == b {
-                padding-bottom: calc(#{$j} * 5)px;
+                padding-bottom: calc(#{$j} * 5px);
             }@else if $padding == l {
-                padding-left: calc(#{$j} * 5)px;
+                padding-left: calc(#{$j} * 5px);
             }@else if $padding == x {
-                padding-right: calc(#{$j} * 5)px;
-                padding-left: calc(#{$j} * 5)px;
+                padding-right: calc(#{$j} * 5px);
+                padding-left: calc(#{$j} * 5px);
             }@else if $padding == y {
-                padding-top: calc(#{$j} * 5)px;
-                padding-bottom: calc(#{$j} * 5)px;
+                padding-top: calc(#{$j} * 5px);
+                padding-bottom: calc(#{$j} * 5px);
             }@else{
-                padding: calc(#{$j} * 5)px;
+                padding: calc(#{$j} * 5px);
             }
         }
     }
@@ -231,7 +240,43 @@ $positions: 'static', 'absolute', 'relative';
         position: #{$position};
     }
 }
-
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+.text-justify{
+    text-align: justify;
+}
+.font-capitalize{
+    text-transform: capitalize;
+}
+.font-lowercase{
+    text-transform: lowercase;
+}
+.font-uppercase{
+    text-transform: uppercase;
+}
+/*
+// 3.E - Shadow
+*/
+.shadow{
+    @for $i from 1 through 6{
+        &-card-#{$i}{
+            box-shadow: 0px 0px calc(#{$i} * 2px) rgba(41,51,82,0.1);
+        }
+    }
+    &-input{
+        box-shadow: 0px 2px 6px rgba(41,51,82,0.1);
+    }
+    &-link{
+        box-shadow: 0px 3px 2px rgba(41,51,82,0.1);
+    }
+}
 /* 
 // ================================
 // | 4 | Button & Link
@@ -334,7 +379,23 @@ body{
     &#head{
         top: 0;
         height: 60px;
-        background-color: $d-primary;
+        .header{
+            position: relative;
+            z-index: 10;
+            width: inherit;
+            height: 46px;
+            background-color: $d-primary;
+            &::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left:0;
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                background-color: inherit;
+            }
+        }
     }
     &#main{
         bottom: 0;
@@ -353,19 +414,182 @@ body{
         }
         .menu-box{
             position: relative;
-            z-index: 3;
+            z-index: 10;
             width: 355px;
             height: 48px;
             border-radius: 24px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.05);
         }
     }
 }
 .content{
     width: inherit;
-    height: calc(579px - 60px);
-    min-height: calc(579px - 60px);
+    height: calc(579px - 45px);
+    min-height: calc(579px - 45px);
     overflow-y: scroll;
     padding-right: 18px;
-    padding-top: 60px;
+    padding-top: 45px;
+}
+section.text{
+    position: relative;
+    width: inherit;
+    box-sizing: border-box;
+    padding: 0px 10px 60px 15px;
+    .head-section{
+        display: flex;
+        align-items: center;
+        hr{
+            width: 85px;
+            border: none;
+            border-bottom: 2px solid $d-primary;
+        }
+    }
+    p.desc{
+        height: calc(100% + 19px);
+        overflow: hidden;
+    }
+    &::before{
+        content: '';
+        z-index: 4;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: inherit;
+        height: 90px;
+        background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,0.7) 60%,rgba(255,255,255,0));
+    }
+    button{
+        display: inline-block;
+        z-index: 5;
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translatex(-50%);
+    }
+}
+.card{
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: $white;
+}
+// Main
+.content{
+    #about{
+        z-index: 2;
+        width: inherit;
+        background-color: $white;
+        padding-bottom: 60px;
+        .jumbotron{
+            position: relative;
+            width: inherit;
+            height: 180px;
+            background-image: url('../img/jumbotron.jpg');
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &::before{
+                content: '';
+                z-index: 3;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(0deg, rgba(41,51,82,0.4),rgba(41,51,82,0.3),rgba(41,51,82,0.1),rgba(41,51,82,0.05));
+            }
+            h1{
+                z-index: 3;
+            }
+        }
+        #sambutan{
+            display: inline-block;
+            height: 330px;
+            img{
+                object-fit: cover;
+                object-position: center;
+                width: 90px;
+                height: 90px;
+                border-radius: 0px 45px 45px 45px;
+                float: left;
+            }
+            p{
+                display: inline-block
+            }
+        }
+        #tujuan{
+            position: relative;
+            width: 375px;
+            height: 390px;
+            overflow: hidden;
+            background-color: $gray;
+            #visi{
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 275px;
+                height: 250px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #misi{
+                position: absolute;
+                top: 240px;
+                left: 50%;
+                transform: translateX(-50%) scale(0.9);
+                width: 275px;
+                height: 250px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 1s;
+                
+            }
+            &:hover{
+                #visi{
+                    .card-head{
+                        border-radius: 0px 0px 0px 0px;
+                    }
+                }
+                #misi{
+                    top: 52px;
+                    transform: translateX(-50%) scale(1);
+                }
+            }
+            p{
+                font-style: italic;
+                font-weight: lighter;
+            }
+            .card-head{
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 155px;
+                height: 32px;
+                border-radius: 0px 0px 16px 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 1s;
+            }
+        }
+        #sejarah{
+            padding-top: 65px;
+            height: 340px;
+            #alamat{
+                position: absolute;
+                top: -70px;
+                left: 50%;
+                width: 345px;
+                height: 120px;
+                transform: translateX(-50%);
+                display: grid;
+                grid-template-columns: 75px 2fr 75px;
+            }
+        }
+    }
 }
