@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/oktapiancaw/Statis-SIKampus">
     <img src="img/logo.png" alt="Logo" width="120" height="120">
   </a>
 
